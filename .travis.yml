@@ -5,9 +5,9 @@ services:
 
 # Build our image using Dockerfile.dev
 before_install:
-  -  docker build -t KoNsZwG/docker-react -f Dockerfile.dev .
+  -  docker build -t konszwg/docker-react -f Dockerfile.dev .
 
 
 #Tell Travis how to run our test suite
 script:
-  - docker run -e CI=true KoNsZwG/docker-react npm run test
+  - docker run -e CI=true konszwg/docker-react npm run test
