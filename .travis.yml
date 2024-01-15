@@ -1,0 +1,13 @@
+# Tell Travies we need a copy of a docker running
+sudo: required
+services:
+  - docker
+
+# Build our image using Dockerfile.dev
+before_install:
+  -  docker build -t KoNsZwG/docker-react -f Dockerfile.dev .
+
+
+#Tell Travis how to run our test suite
+script:
+  - docker run -e CI=true KoNsZwG/docker-react npm run test
